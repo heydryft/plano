@@ -173,6 +173,7 @@ impl std::fmt::Display for SessionCacheError {
 impl std::error::Error for SessionCacheError {}
 
 #[async_trait]
+#[allow(clippy::double_must_use)]
 pub trait SessionCache: Send + Sync {
     /// Look up a session binding by key. `Ok(None)` when absent or GC-evicted, `Err` when
     /// the backend itself failed. Warmth is the caller's concern (time since `last_used`),

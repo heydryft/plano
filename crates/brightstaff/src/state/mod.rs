@@ -62,6 +62,7 @@ impl Error for StateStorageError {}
 
 /// Trait for conversation state storage backends
 #[async_trait]
+#[allow(clippy::double_must_use)]
 pub trait StateStorage: Send + Sync {
     /// Store conversation state for a response
     async fn put(&self, state: OpenAIConversationState) -> Result<(), StateStorageError>;
